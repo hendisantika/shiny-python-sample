@@ -1,10 +1,9 @@
 from pathlib import Path
 
-import pandas
 import pandas as pd
 import plotly.express as px
 from shiny import reactive
-from shiny.express import render, input, ui
+from shiny.express import input, ui
 from shinywidgets import render_plotly
 
 ui.page_opts(title="Sales Dashboard", fillable=True)
@@ -37,3 +36,21 @@ with ui.layout_columns():
     # @render.data_frame
     # def data():
     #     return dat()
+    ui.input_selectize(
+        "city",
+        "Select a City:",
+        [
+            "Dallas (TX)",
+            "Boston (MA)",
+            "Los Angeles (CA)",
+            "San Francisco (CA)",
+            "Seattle (WA)",
+            "Atlanta (GA)",
+            "New York City (NY)",
+            "Portland (OR)",
+            "Austin (TX)",
+            "Portland (ME)",
+        ],
+        multiple=False,
+        selected='Boston (MA)'
+    )
