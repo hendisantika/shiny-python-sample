@@ -31,5 +31,3 @@ jobs:
           pip install rsconnect-python
           rsconnect add --account hendisantika --name hendisantika --token "$SHINYAPPSIO_TOKEN" --secret "$SHINYAPPSIO_SECRET"
           rsconnect deploy shiny ./ --name hendisantika --title shiny-app
-          #          rsconnect deploy shiny ./ --name "hendisantika" --title "shiny-app" --token "$SHINYAPPSIO_TOKEN" --secret "$SHINYAPPSIO_SECRET"
-         

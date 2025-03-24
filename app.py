@@ -88,7 +88,7 @@ with ui.div(class_="header-container"):
             return img
 
     with ui.div(class_="title-container"):
-        ui.h2("Sales Dashboard - Video 5 of 5")
+        ui.h2("Shiny App - Sales Dashboard")
 
 with ui.card():
     ui.card_header("Sales by City 2023")
