@@ -1,5 +1,3 @@
-# shiny-python-sample
-
 # Shiny Python Projects
 
 Python projects built using the Shiny Framework
