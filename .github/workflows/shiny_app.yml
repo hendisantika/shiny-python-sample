@@ -29,5 +29,5 @@ jobs:
           SHINYAPPSIO_SECRET: ${{ secrets.SHINYAPPS_SECRET }}
         run: |
           pip install rsconnect-python
-          rsconnect deploy shiny --name "your_account_name" --token "$SHINYAPPSIO_TOKEN" --secret "$SHINYAPPSIO_SECRET" --appDir "." --appFiles "app.py,data/sales.csv,requirements.txt,Dockerfile,compose.yml,.env,.github/workflows/shiny-app.yml,sales.jvm.my.id.conf" --appName "shiny-app"
+          rsconnect deploy shiny ./ --name "hendisantika" --token "$SHINYAPPSIO_TOKEN" --secret "$SHINYAPPSIO_SECRET" --appName "shiny-app"
          
