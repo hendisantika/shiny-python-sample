@@ -20,10 +20,6 @@ more. This is a great place to start if you are new to Shiny.
 Walks through the basics of getting started with Shiny for Python and we build
 and deploy a simple app by the end of the video.
 
-[Finished Source Code](https://github.com/KeithGalli/shiny-python-projects/tree/video1/sales)
-
-[Video Link](https://youtu.be/I2W7i7QyJPI?si=4gQSbdKbF50SX3uO)
-
 ### Part 2: How to Make Interactive Python Dashboards! (Reactivity in Shiny)
 
 <img src='./assets/video2.png' width=50%>
