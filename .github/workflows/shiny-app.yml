@@ -29,19 +29,37 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/shiny-app:${{ github.run_number }}
 
+      - name: Set all environment variables
+        env:
+          IMAGE_TAG: ${{ github.run_number }}
+
+        run: |
+          echo IMAGE_TAG=$IMAGE_TAG >> .env
+
+      - name: Copy all environment variables
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ vars.SSH_HOST }}
+          username: ${{ vars.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          source: "./.env"  # Path to the file on your runner
+          target: "~/shinyapp"  # Target directory on the server
+
       - name: Deploy to VPS
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_HOST: ${{ vars.SSH_HOST }}
           SSH_USER: ${{ vars.SSH_USER }}
+          IMAGE_TAG: ${{ github.run_number }}
         run: |
           echo "$SSH_PRIVATE_KEY" > private_key
           chmod 600 private_key
           ssh -i private_key -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST << 'EOF'
-            docker pull ${{ secrets.DOCKER_USERNAME }}/shiny-app:latest
+            docker pull ${{ secrets.DOCKER_USERNAME }}/shiny-app:$IMAGE_TAG
             mkdir -p ~/shinyapp
             cd ~/shinyapp
-            docker-compose down
-            docker-compose up -d
+            docker compose down
+            docker compose up -d
           EOF
         shell: bash
