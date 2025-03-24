@@ -65,7 +65,7 @@ def style_plotly_chart(fig, yaxis_title):
     return fig
 
 
-ui.page_opts(window_title="Sales Dashboard - Video 5 of 5", fillable=False)
+ui.page_opts(window_title="Shiny App - Sales Dashboard", fillable=False)
 
 
 @reactive.calc
