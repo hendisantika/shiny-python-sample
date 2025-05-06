@@ -37,7 +37,7 @@ jobs:
           echo IMAGE_TAG=$IMAGE_TAG >> .env
 
       - name: Copy all environment variables
-        uses: appleboy/scp-action@v0.1.7
+        uses: appleboy/scp-action@v1.0.0
         with:
           host: ${{ vars.SSH_HOST }}
           username: ${{ vars.SSH_USER }}
